@@ -10,6 +10,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getAllGames() {
-    return this.http.get<Game[]>('http://localhost:8080/game/all');
+    return this.http.get<Game[]>('http://192.168.178.171:8080/game/all');
   }
 }
