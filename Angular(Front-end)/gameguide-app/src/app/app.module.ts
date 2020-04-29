@@ -3,14 +3,27 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { GameCardComponent } from './components/game-card/game-card.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AddgameComponent } from './pages/addgame/addgame.component';
+import { GamepageComponent } from './pages/gamepage/gamepage.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    ContactComponent,
+    GameCardComponent,
+    AddgameComponent,
+    GamepageComponent,
+  
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

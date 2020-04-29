@@ -1,1 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap');
+@import url('../node_modules/materialize-css/dist/css/materialize.min.css');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+$primary: rgb(255, 255, 255);
+$gradient: linear-gradient(to right, #4ecdc4, #556270); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+body {
+    background: $gradient;
+    margin: 0;
+    // font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+header {
+    background-color: $primary;
+    padding: 1em 0;
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    a.logo {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    div.nav {
+        float: right;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            display: flex;
+
+            li a {
+                padding: 1em;
+
+                &:hover {
+                    background: darken($primary, $amount: 10%);
+                }
+            }
+        }
+    }
+}
