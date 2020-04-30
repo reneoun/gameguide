@@ -9,6 +9,7 @@ import { GameCardComponent } from './components/game-card/game-card.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddgameComponent } from './pages/addgame/addgame.component';
 import { GamepageComponent } from './pages/gamepage/gamepage.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { GamepageComponent } from './pages/gamepage/gamepage.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

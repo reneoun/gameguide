@@ -10,7 +10,19 @@ import * as $ from 'node_modules/jquery';
 })
 export class AddgameComponent implements OnInit {
 
+  steps: number = 0;
+
   constructor() { }
+
+  addStep() {
+    this.steps += 1;
+  }
+
+  removeStep() {
+    if(this.steps > 0) {
+      this.steps -= 1;
+    }
+  }
 
   ngOnInit(): void {
     M.AutoInit();

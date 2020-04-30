@@ -34,6 +34,28 @@
                 <input id="time" type="text" placeholder="Example 1:00">
                 <label for="time">Duration</label>
 
+                <br><br>
+
+                
+                <a class="btn-small" (click)="addStep()">add step</a>
+                <a class="btn-small" (click)="removeStep()">remove step</a>
+                <p>{{ steps }}</p>
+
+                <ng-template [ngIf]="steps >= 1">
+                    <input id="step-1" type="text" placeholder="Step 1">
+                </ng-template>
+                <ng-template [ngIf]="steps >= 2">
+                    <input id="step-2" type="text" placeholder="Step 2">
+                </ng-template>
+                <ng-template [ngIf]="steps >= 3">
+                    <input id="step-3" type="text" placeholder="Step 3">
+                </ng-template>
+                <ng-template [ngIf]="steps >= 4">
+                    <input id="step-4" type="text" placeholder="Step 4">
+                </ng-template>
+
+
+
             </form>
         </div>
     </div>
