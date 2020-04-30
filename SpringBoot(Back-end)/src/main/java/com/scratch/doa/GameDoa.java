@@ -39,6 +39,13 @@ public class GameDoa {
         return jdbcTemplate.queryForObject(sql,new GameRowMapper());
     }
 
+    @CrossOrigin
+    public void addGame(String names, String short_desc, String image_url) {
+        String sql = "insert into Games (title, short_desc, image_path) values (? , ? , ?);";
+        int result = jdbcTemplate.update(sql,names,short_desc,image_url);
+        if (result>0) System.out.println("Game is added!");
+    }
+
     private class GameRowMapper implements RowMapper<Game>{
 
         @Override
