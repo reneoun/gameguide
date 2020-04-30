@@ -1,50 +1,9 @@
 $gradient: linear-gradient(to right, #4ecdc4, #556270); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-
-    li {
-        background: white;
-        padding: 1em;
-        margin-right: 10px;
-        width: 300px;
-        height: 220px;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        display: flex;
-        flex-direction: column;
-        border-radius: 5px;
-
-        img {
-            border-radius: 5px;
-            margin-bottom: 5px;
-            max-height: 70%;
-            max-width: 250px;
-            align-self: center;
-        }
-
-        p {
-            margin: 0;
-        }
-
-        p.name {
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        p.desc {
-            font-size: .9rem;
-            flex-grow: 1;
-        }
-        
-        &:hover{
-            background: darken($color: white, $amount: 20%);
-            border: black solid 3px;
-        }
-    }
+    
 }

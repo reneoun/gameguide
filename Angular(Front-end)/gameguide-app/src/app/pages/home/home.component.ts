@@ -22,13 +22,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllGames()
     M.AutoInit();
-    $(document).ready(function(){
-      $('.fixed-action-btn').floatingActionButton();
-    });
   }
 
   public getAllGames(){
-    this._http.getAllGames().subscribe(res => {
+    this._http.getAllGames().subscribe(
+    res => {
       this.games = res;
       console.log(this.games);
     },

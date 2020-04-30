@@ -1,0 +1,13 @@
+div{
+    background-color: whitesmoke;
+    height: 100%;
+    img{
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+    }
+    div.explanation{
+        padding: 10px;
+        margin-top: -30px;
+    }
+}
