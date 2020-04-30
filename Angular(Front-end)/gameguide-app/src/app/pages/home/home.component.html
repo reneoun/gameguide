@@ -1,14 +1,15 @@
 <!-- <h1>Home</h1> -->
 <div class="fixed-action-btn">
     <a routerLink="/addgame" class="btn-floating btn-large blue">
-      <i class="large material-icons">mode_edit</i>
+      <i class="large material-icons">add</i>
     </a>
 </div>
 
 <ul *ngIf="games">
-    <li *ngFor="let game of games">
-        <img [src]="game.image_url.body" alt="">
-        <p class="name">{{ game.names }}</p>
-        <p class="desc">{{ game.shortDesc}}</p>
-    </li>
+    <app-game-card *ngFor="let game of games"
+    [title]="game.names"
+    [shortDes]= "game.shortDesc"
+    [image_url]="game.image_url.body"
+    [routerLink]="['/gamepage',game.id]">
+    </app-game-card>
 </ul>

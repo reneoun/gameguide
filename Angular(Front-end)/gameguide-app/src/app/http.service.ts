@@ -12,4 +12,8 @@ export class HttpService {
   getAllGames() {
     return this.http.get<Game[]>('http://localhost:8080/game/all');
   }
+
+  getGamebyID(id:number) {
+    return this.http.get<Game>('http://localhost:8080/game/byID?id='+id);
+  }
 }

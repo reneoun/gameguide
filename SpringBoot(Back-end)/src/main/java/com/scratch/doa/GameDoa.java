@@ -33,6 +33,12 @@ public class GameDoa {
         return jdbcTemplate.query(sql, rowMapper);
     }
 
+    @CrossOrigin
+    public Game getGameById(String id){
+        String sql = "select * from Games where id = " + id+";";
+        return jdbcTemplate.queryForObject(sql,new GameRowMapper());
+    }
+
     private class GameRowMapper implements RowMapper<Game>{
 
         @Override
@@ -45,11 +51,11 @@ public class GameDoa {
             String absPathStr = currentP.toAbsolutePath().toString();
             Path absP = Paths.get(absPathStr.substring(0,absPathStr.length()-1) + "src/main/" + resultSet.getString("image_path"));
 
-            String image_url = absP.toString();
+            String image_path = absP.toString();
 
             String tmp = "";
             try{
-                File file = new File(image_url);
+                File file = new File(image_path);
                 String ext = FilenameUtils.getExtension(file.getName());
                 FileInputStream fis = new FileInputStream(file);
                 byte[] bytes = new byte[(int) file.length()];

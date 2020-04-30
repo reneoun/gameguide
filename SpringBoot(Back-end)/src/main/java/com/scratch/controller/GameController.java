@@ -27,4 +27,9 @@ public class GameController {
     public List<Game> getAllGames(){
         return gameDoa.getAllGames();
     }
+
+    @GetMapping(path = "/byID")
+    public Game getGameByID(@RequestParam String id){
+        return gameDoa.getGameById(id);
+    }
 }
