@@ -18,10 +18,17 @@ export class AddgameComponent implements OnInit {
     window.onload = function() {
       var elems  = document.querySelectorAll("input[type=range]");
       M.Range.init(elems);
-
     };
 
-    
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.chips');
+      var instances = M.Chips.init(elems, {
+          placeholder: "Example Dice",
+          secondaryPlaceholder: "+object",
+          Limit: 10,
+      });
+    });
+
   }
 
 }
