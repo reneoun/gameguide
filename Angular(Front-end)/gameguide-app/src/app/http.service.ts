@@ -12,4 +12,13 @@ export class HttpService {
   getAllGames() {
     return this.http.get<Game[]>('http://192.168.178.171:8080/game/all');
   }
+
+  uploadImage(image:File) {
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', image, image.name);
+    return this.http.post('http://192.168.178.171:8080/game/uploadImage', uploadImageData, { observe: 'response' });
+    // .subscribe((response) => {
+    //   console.log(response);
+    // });   
+  }
 }
