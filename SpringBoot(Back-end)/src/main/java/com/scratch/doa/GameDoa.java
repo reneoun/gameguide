@@ -1,6 +1,7 @@
 package com.scratch.doa;
 
 import com.scratch.model.Game;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,10 +10,14 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.multipart.MultipartFile;
 
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.ResultSet;
@@ -44,6 +49,18 @@ public class GameDoa {
         String sql = "insert into Games (title, short_desc, image_path) values (? , ? , ?);";
         int result = jdbcTemplate.update(sql,names,short_desc,image_url);
         if (result>0) System.out.println("Game is added!");
+    }
+
+    public void uploadImage(MultipartFile file){
+        try {
+            File fileDes = new File("C:\\Users\\Brouwnie\\Documents\\GitHub\\gameguide\\SpringBoot(Back-end)\\src\\main\\resources\\images\\"+file.getOriginalFilename());
+            FileUtils.writeByteArrayToFile(fileDes,file.getBytes());
+            System.out.println("Yeaah");
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("aahw");
+        }
+
     }
 
     private class GameRowMapper implements RowMapper<Game>{
