@@ -35,7 +35,6 @@ export class AddgameComponent implements OnInit {
 
   onFileChanged(event) {
     this.selectedFile = <File>event.target.files[0];
-    // console.log(this.selectedFile);
   }
 
   addStep() {
