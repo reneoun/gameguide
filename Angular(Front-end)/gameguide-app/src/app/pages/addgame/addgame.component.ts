@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import * as M from 'node_modules/materialize-css';
-import { Placeholder } from '@angular/compiler/src/i18n/i18n_ast';
-import * as $ from 'node_modules/jquery';
 import { HttpService } from 'src/app/http.service';
 
 @Component({
@@ -14,7 +12,9 @@ export class AddgameComponent implements OnInit {
   model:AddGameViewModel = {
     title: '',
     shortDesc: '',
-    img: ''
+    require: '',
+    players: null, //wat moet ik hier invullen voor 'null'?
+    duration: ''
   }
 
   steps: number = 0;
@@ -24,18 +24,21 @@ export class AddgameComponent implements OnInit {
   constructor(private http: HttpService) { }
 
   public addGame() {
-    this.http.uploadImage(this.selectedFile).subscribe((response) => {
-      if (response.status === 200) {
-        console.log('Image upload succesfully!');
-      } else {
-        console.log('Image upload failed!');
-      } 
-    });
+    this.http.uploadGame(this.model)
+    .subscribe(
+      res => {console.log(res);},
+      err =>{alert("There is a Form error!")}
+    );
+    this.http.uploadImage(this.selectedFile)
+    .subscribe(
+      res => {console.log(res);},
+      err =>{alert("There is an Image error!")}
+    );
   }
 
   onFileChanged(event) {
     this.selectedFile = <File>event.target.files[0];
-    // console.log(this.selectedFile);
+    console.log(this.selectedFile);
   }
 
   addStep() {
@@ -48,12 +51,15 @@ export class AddgameComponent implements OnInit {
     }
   }
 
+
   ngOnInit(): void {
     M.AutoInit();
 
     window.onload = function() {
+
       var elems  = document.querySelectorAll("input[type=range]");
       M.Range.init(elems);
+
       var elems = document.querySelectorAll('.chips');
       var instances = M.Chips.init(elems, {
           placeholder: "Example Dice",
@@ -69,7 +75,9 @@ export class AddgameComponent implements OnInit {
 export interface AddGameViewModel {
   title:string;
   shortDesc:string;
-  img:string;
+  require: string;
+  players: number;
+  duration: string;
 }
 
 /**
